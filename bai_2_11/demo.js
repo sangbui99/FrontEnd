@@ -1,22 +1,40 @@
-// Destructuring, Rest
-// với mảng
-var arr = ['toi', "tên", `la`, 'bùi',`xuaan`, 'sang']
-var[a,,b,...rest] = arr
-console.log(a,b,rest)
+// Rest cho bài trc chưa nói
+function logger(...obj){
+  console.log(obj[0].childrenObj.nam)
+}
+// cách khác ở function dưới
 
-// với object
-var obj = {
+// function logger({nam,age}){
+//   console.log(nam,age)
+// }
+
+logger({
   nam:'sang',
   age: 23,
   add: 'nam dinh',
   childrenObj:{
     nam:'bui'
   } 
+})
+
+
+
+// toán tử Spread operator 
+// để nối nhiều mảng
+var arr = ['toi', "tên", `la`, 'bùi',`xuaan`, 'sang']
+var arr2 = ['toi2', "tên2", `la2`, 'bùi2',`xuaan2`, 'sang2']
+var arr3 = [...arr2,...arr]
+console.log(arr3)
+
+// để nối nhiều object
+var obj = {
+  nam:'sang'
 }
-// tên biến ages bị sai nên ko lấy. với obj phải đúng
-var{nam,ages = 'mặc định', ...rest} = obj
-console.log(nam, ages)
-console.log( rest)
-// đổi tên biến, và gọi biến trong obj con
-var{nam:childrenNam, childrenObj:{nam}} = obj
-console.log(childrenNam,nam)
+
+var obj2 = {
+    age: 23,
+    add: 'nam dinh'
+}
+
+var obj3 = {...obj,...obj2}
+console.log(obj3)
